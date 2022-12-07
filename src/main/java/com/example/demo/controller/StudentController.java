@@ -44,7 +44,7 @@ public class StudentController {
 //        return ResponseEntity.ok(studentService.update(stu));
 //    }
 
-    @DeleteMapping("/id")
+    @DeleteMapping("/{id}")
     public void delete(@PathVariable String id) {
         //应该返回一个boolean?
         Optional<Student> stu = studentService.findById(id);

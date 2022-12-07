@@ -9,6 +9,11 @@ import javax.persistence.EntityManager;
 
 @Repository
 public class StudentCustomRepoImp implements StudentCustomRepo {
+    @Override
+    public Student insert(Student student) {
+        entityManager.persist(student);
+        return student;
+    }
 
     private final EntityManager entityManager;
 
@@ -17,11 +22,11 @@ public class StudentCustomRepoImp implements StudentCustomRepo {
         this.entityManager = entityManager;
     }
 
-    @Override
-    public String insert(Student stu) {
-        entityManager.persist(stu);
-        return stu.getId();
-    }
+//    @Override
+//    public String insert(Student stu) {
+//        entityManager.persist(stu);
+//        return stu.getId();
+//    }
 //
 //    @Override
 //    public String update(Student student) {

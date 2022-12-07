@@ -6,7 +6,7 @@ import org.springframework.stereotype.Repository;
 @Repository
 public interface StudentCustomRepo {
 
-    String insert(Student student);
+    Student insert(Student student);
 
 //    String update(Student student);
 }
