@@ -1,20 +1,24 @@
 package com.example.demo.sercice;
 
 import com.example.demo.entity.Student;
-import com.example.demo.repository.StudentRepository;
+import com.example.demo.entity.StudentAndTeacher;
+import com.example.demo.repository.student.StudentRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import javax.management.relation.Relation;
+import javax.transaction.Transactional;
 import java.util.List;
 import java.util.Optional;
 
 @Service
-public class StudentServiceImp implements StudentService{
+@Transactional
+public class StudentServiceImpl implements StudentService{
 
     private final StudentRepository studentRepository;
 
     @Autowired
-    public StudentServiceImp(StudentRepository studentRepository) {
+    public StudentServiceImpl(StudentRepository studentRepository) {
         this.studentRepository = studentRepository;
     }
 
@@ -33,19 +37,24 @@ public class StudentServiceImp implements StudentService{
         return list;
     }
 
-//    @Override
-//    public String insert(Student stu) {
-//
-//        return studentRepository.insert(stu);
-//    }
+    @Override
+    public String insert(Student stu) {
+        return studentRepository.insert(stu);
+    }
 
     @Override
     public void delete(Student stu) {
         studentRepository.delete(stu);
     }
 
-//    @Override
-//    public String update(Student stu) {
-//        return studentRepository.update(stu);
-//    }
+    @Override
+    public String update(Student stu) {
+        return studentRepository.update(stu);
+    }
+
+    @Override
+    public List<StudentAndTeacher> findAllRelations(String id) {
+        Optional<Student> stu = findById(id);
+        return studentRepository.findAllRelations(stu.get());
+    }
 }

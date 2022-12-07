@@ -5,6 +5,8 @@ import lombok.Data;
 import lombok.NoArgsConstructor;
 
 import javax.persistence.*;
+import java.util.ArrayList;
+import java.util.List;
 
 @Entity
 @Table(name = "teacher")
@@ -19,4 +21,12 @@ public class Teacher {
 
     @Column(name = "name")
     private String name;
+
+    @OneToMany(fetch = FetchType.LAZY, mappedBy = "tea", cascade = CascadeType.ALL)
+    private List<StudentAndTeacher> relations = new ArrayList<>();
+
+    public boolean addRelations(StudentAndTeacher rel) {
+        relations.add(rel);
+        return true;
+    }
 }

@@ -31,24 +31,29 @@ public class StudentController {
         return ResponseEntity.ok(studentService.findAll());
     }
 
-//    @PostMapping
-//    public ResponseEntity<String> insert(@RequestBody Student student) {
-//        return ResponseEntity.ok(studentService.insert(student));
-//    }
+    @PostMapping
+    public ResponseEntity<String> insert(@RequestBody Student student) {
+        return ResponseEntity.ok(studentService.insert(student));
+    }
 
-//    @PutMapping(value = "/{id}") //, consumes = {"multipart/mixed"}
-//    public ResponseEntity<String> update(@PathVariable String id, @RequestParam("name") String name){
-//        Student stu = new Student();
-//        stu.setId(id);
-//        stu.setName(name);
-//        return ResponseEntity.ok(studentService.update(stu));
-//    }
+    @PutMapping(value = "/{id}") //, consumes = {"multipart/mixed"}
+    public ResponseEntity<String> update(@PathVariable String id, @RequestParam("name") String name){
+        Student stu = new Student();
+        stu.setId(id);
+        stu.setName(name);
+        return ResponseEntity.ok(studentService.update(stu));
+    }
 
     @DeleteMapping("/{id}")
     public void delete(@PathVariable String id) {
         //应该返回一个boolean?
         Optional<Student> stu = studentService.findById(id);
         studentService.delete(stu.get());
+    }
+
+    @GetMapping("/{id}/teachers")
+    public ResponseEntity findAllRelations(@PathVariable String id) {
+        return ResponseEntity.ok(studentService.findAllRelations(id));
     }
 
     @ExceptionHandler(RuntimeException.class)
