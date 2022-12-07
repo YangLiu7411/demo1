@@ -12,5 +12,5 @@ public interface StudentService {
     List<Student> findAll();
 //    String insert(Student stu);
     void delete(Student stu);
-    String update(Student stu);
+//    String update(Student stu);
 }

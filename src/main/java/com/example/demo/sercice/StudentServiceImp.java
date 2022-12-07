@@ -44,8 +44,8 @@ public class StudentServiceImp implements StudentService{
         studentRepository.delete(stu);
     }
 
-    @Override
-    public String update(Student stu) {
-        return studentRepository.update(stu);
-    }
+//    @Override
+//    public String update(Student stu) {
+//        return studentRepository.update(stu);
+//    }
 }

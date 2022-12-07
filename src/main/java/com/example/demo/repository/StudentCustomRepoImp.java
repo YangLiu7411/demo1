@@ -17,15 +17,15 @@ public class StudentCustomRepoImp implements StudentCustomRepo {
         this.entityManager = entityManager;
     }
 
-//    @Override
-//    public String insert(Student stu) {
-//        em.persist(stu);
-//        return stu.getId();
-//    }
-//
     @Override
-    public String update(Student student) {
-        entityManager.merge(student);
-        return student.getId();
+    public String insert(Student stu) {
+        entityManager.persist(stu);
+        return stu.getId();
     }
+//
+//    @Override
+//    public String update(Student student) {
+//        entityManager.merge(student);
+//        return student.getId();
+//    }
 }
