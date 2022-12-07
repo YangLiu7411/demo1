@@ -1,5 +1,7 @@
 package com.example.demo.sercice;
 
+import com.example.demo.entity.Student;
+import com.example.demo.entity.StudentAndTeacher;
 import com.example.demo.entity.Teacher;
 import com.example.demo.repository.teacher.TeacherRepository;
 import org.springframework.stereotype.Service;
@@ -41,6 +43,12 @@ public class TeacherServiceImpl implements TeacherService{
     @Override
     public void delete(Teacher teacher) {
         teacherRepository.delete(teacher);
+    }
+
+    @Override
+    public List<StudentAndTeacher> findAllRelations(String id) {
+        Optional<Teacher> tea = findById(id);
+        return teacherRepository.findAllRelations(tea.get());
     }
 
 }

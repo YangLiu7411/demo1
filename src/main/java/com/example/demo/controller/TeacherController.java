@@ -1,6 +1,7 @@
 package com.example.demo.controller;
 
 import com.example.demo.entity.Student;
+import com.example.demo.entity.StudentAndTeacher;
 import com.example.demo.entity.Teacher;
 import com.example.demo.sercice.TeacherService;
 import com.example.demo.sercice.TeacherServiceImpl;
@@ -50,7 +51,7 @@ public class TeacherController {
     }
 
     @GetMapping("/{id}/students")
-    public ResponseEntity findAllRelations(@PathVariable String id) {
-        return null;
+    public ResponseEntity<List<StudentAndTeacher>> findAllRelations(@PathVariable String id) {
+        return ResponseEntity.ok(teacherService.findAllRelations(id));
     }
 }

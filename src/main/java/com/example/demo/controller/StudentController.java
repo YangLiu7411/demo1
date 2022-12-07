@@ -1,6 +1,7 @@
 package com.example.demo.controller;
 
 import com.example.demo.entity.Student;
+import com.example.demo.entity.StudentAndTeacher;
 import com.example.demo.sercice.StudentService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
@@ -52,7 +53,7 @@ public class StudentController {
     }
 
     @GetMapping("/{id}/teachers")
-    public ResponseEntity findAllRelations(@PathVariable String id) {
+    public ResponseEntity<List<StudentAndTeacher>> findAllRelations(@PathVariable String id) {
         return ResponseEntity.ok(studentService.findAllRelations(id));
     }
 

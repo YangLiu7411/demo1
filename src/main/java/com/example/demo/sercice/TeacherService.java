@@ -1,5 +1,6 @@
 package com.example.demo.sercice;
 
+import com.example.demo.entity.StudentAndTeacher;
 import com.example.demo.entity.Teacher;
 import org.springframework.stereotype.Service;
 
@@ -13,4 +14,5 @@ public interface TeacherService {
     Optional<Teacher> findById(String id);
     List<Teacher> findAll();
     void delete(Teacher teacher);
+    List<StudentAndTeacher> findAllRelations(String id);
 }
