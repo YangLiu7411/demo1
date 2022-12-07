@@ -1,7 +1,7 @@
 package com.example.demo.controller;
 
+import com.example.demo.entity.Student;
 import com.example.demo.sercice.StudentService;
-import entity.Student;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -14,22 +14,22 @@ import java.util.Optional;
 @RequestMapping("/student")
 public class StudentController {
 
-//    private final StudentService studentService;
-//
-//    @Autowired
-//    public StudentController (StudentService studentService) {
-//        this.studentService = studentService;
-//    }
+    private final StudentService studentService;
 
-//    @GetMapping("/{id}")
-//    public ResponseEntity<Optional<Student>> findStuById(@PathVariable String id) {
-//        return ResponseEntity.ok(studentService.findById(id));
-//    }
-//
-//    @GetMapping()
-//    public ResponseEntity<List<Student>> findAll() {
-//        return ResponseEntity.ok(studentService.findAll());
-//    }
+    @Autowired
+    public StudentController (StudentService studentService) {
+        this.studentService = studentService;
+    }
+
+    @GetMapping("/{id}")
+    public ResponseEntity<Optional<Student>> findStuById(@PathVariable String id) {
+        return ResponseEntity.ok(studentService.findById(id));
+    }
+
+    @GetMapping()
+    public ResponseEntity<List<Student>> findAll() {
+        return ResponseEntity.ok(studentService.findAll());
+    }
 
 //    @PostMapping
 //    public ResponseEntity<String> insert(@RequestBody Student student) {
@@ -44,12 +44,12 @@ public class StudentController {
 //        return ResponseEntity.ok(studentService.update(stu));
 //    }
 
-//    @DeleteMapping("/id")
-//    public void delete(@PathVariable String id) {
-//        //应该返回一个boolean?
-//        Optional<Student> stu = studentService.findById(id);
-//        studentService.delete(stu.get());
-//    }
+    @DeleteMapping("/id")
+    public void delete(@PathVariable String id) {
+        //应该返回一个boolean?
+        Optional<Student> stu = studentService.findById(id);
+        studentService.delete(stu.get());
+    }
 
     @ExceptionHandler(RuntimeException.class)
     public ResponseEntity<String> handleNotFound() {
