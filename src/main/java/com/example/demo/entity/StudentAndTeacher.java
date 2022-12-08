@@ -1,5 +1,7 @@
 package com.example.demo.entity;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
@@ -19,9 +21,12 @@ public class StudentAndTeacher {
 
     @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "s_id")
+    @JsonIgnore
     private Student stu;
 
     @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "t_id")
+    @JsonIgnore
     private Teacher tea;
+
 }

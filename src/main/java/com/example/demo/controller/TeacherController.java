@@ -51,7 +51,7 @@ public class TeacherController {
     }
 
     @GetMapping("/{id}/students")
-    public ResponseEntity<List<StudentAndTeacher>> findAllRelations(@PathVariable String id) {
+    public ResponseEntity<List<StudentAndTeacher>> findAllAllRelations(@PathVariable String id) {
         return ResponseEntity.ok(teacherService.findAllRelations(id));
     }
 }

@@ -6,10 +6,11 @@ import com.example.demo.entity.Teacher;
 import org.springframework.stereotype.Repository;
 
 import java.util.List;
+import java.util.Optional;
 
 @Repository
 public interface TeacherCustomRepo {
     String insert(Teacher teacher);
     String update(Teacher teacher);
-    List<StudentAndTeacher> findAllRelations(Teacher teacher);
+    List<StudentAndTeacher> findAllRelations(Teacher tea);
 }

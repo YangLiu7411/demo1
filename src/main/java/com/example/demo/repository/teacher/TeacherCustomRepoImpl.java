@@ -35,4 +35,5 @@ public class TeacherCustomRepoImpl implements TeacherCustomRepo{
     public List<StudentAndTeacher> findAllRelations(Teacher tea) {
         return tea.getRelations();
     }
+
 }

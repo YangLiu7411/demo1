@@ -41,4 +41,5 @@ public class StudentCustomRepoImpl implements StudentCustomRepo {
     public List<StudentAndTeacher> findAllRelations(Student stu) {
         return stu.getRelations();
     }
+
 }

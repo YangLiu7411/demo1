@@ -15,4 +15,5 @@ public interface StudentCustomRepo {
     String update(Student student);
 
     List<StudentAndTeacher> findAllRelations(Student stu);
+
 }

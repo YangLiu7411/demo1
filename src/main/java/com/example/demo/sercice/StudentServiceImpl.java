@@ -4,9 +4,9 @@ import com.example.demo.entity.Student;
 import com.example.demo.entity.StudentAndTeacher;
 import com.example.demo.repository.student.StudentRepository;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Service;
 
-import javax.management.relation.Relation;
 import javax.transaction.Transactional;
 import java.util.List;
 import java.util.Optional;
@@ -39,7 +39,9 @@ public class StudentServiceImpl implements StudentService{
 
     @Override
     public String insert(Student stu) {
-        return studentRepository.insert(stu);
+//        return studentRepository.insert(stu);
+        studentRepository.save(stu);
+        return stu.getId();
     }
 
     @Override
@@ -57,4 +59,6 @@ public class StudentServiceImpl implements StudentService{
         Optional<Student> stu = findById(id);
         return studentRepository.findAllRelations(stu.get());
     }
+
+
 }

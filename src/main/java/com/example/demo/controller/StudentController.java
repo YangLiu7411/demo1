@@ -2,6 +2,7 @@ package com.example.demo.controller;
 
 import com.example.demo.entity.Student;
 import com.example.demo.entity.StudentAndTeacher;
+import com.example.demo.entity.Teacher;
 import com.example.demo.sercice.StudentService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
@@ -57,11 +58,19 @@ public class StudentController {
         return ResponseEntity.ok(studentService.findAllRelations(id));
     }
 
-    @ExceptionHandler(RuntimeException.class)
-    public ResponseEntity<String> handleNotFound() {
-        return new ResponseEntity<>(
-                new String("resource not found"),
-                HttpStatus.NOT_FOUND
-        );
-    }
+
+//    @PutMapping("/{id}/teachers/{t}")
+//    public ResponseEntity<String> putRelationByStuAndTea(@PathVariable String id, @PathVariable String t) {
+//        studentService.addRelations(id, t);
+//    }
+
+
+//    @ExceptionHandler(RuntimeException.class)
+//    public ResponseEntity<String> handleNotFound() {
+//        return new ResponseEntity<>(
+//                new String("resource not found"),
+//                HttpStatus.NOT_FOUND
+//        );
+//    }
+
 }

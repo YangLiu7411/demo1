@@ -18,4 +18,5 @@ public interface StudentService {
     void delete(Student stu);
     String update(Student stu);
     List<StudentAndTeacher> findAllRelations(String id);
+
 }
