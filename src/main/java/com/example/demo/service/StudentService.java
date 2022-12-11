@@ -1,10 +1,9 @@
-package com.example.demo.sercice;
+package com.example.demo.service;
 
 import com.example.demo.entity.Student;
 import com.example.demo.entity.StudentAndTeacher;
 import org.springframework.stereotype.Service;
 
-import javax.management.relation.Relation;
 import javax.transaction.Transactional;
 import java.util.List;
 import java.util.Optional;

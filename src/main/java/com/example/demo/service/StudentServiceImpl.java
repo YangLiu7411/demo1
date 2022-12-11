@@ -1,10 +1,9 @@
-package com.example.demo.sercice;
+package com.example.demo.service;
 
 import com.example.demo.entity.Student;
 import com.example.demo.entity.StudentAndTeacher;
 import com.example.demo.repository.student.StudentRepository;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Service;
 
 import javax.transaction.Transactional;

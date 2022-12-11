@@ -1,6 +1,5 @@
-package com.example.demo.sercice;
+package com.example.demo.service;
 
-import com.example.demo.entity.Student;
 import com.example.demo.entity.StudentAndTeacher;
 import com.example.demo.entity.Teacher;
 import com.example.demo.repository.teacher.TeacherRepository;
